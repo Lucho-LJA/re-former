@@ -1,4 +1,5 @@
-<%= form_with model: @user do |form| %>
+<!--
+<%= form_with model: @user do |form| %> 
     <%= form.label :username %><br />
     <%= form.text_field :username %><br />
 
@@ -7,6 +8,31 @@
 
     <%= form.label :password %><br />
     <%= form.text_field :password %><br />
+
+    <%= form.submit "Create" %>
+<% end %> -->
+
+<!--
+<%= form_tag("/users", method:"post") do %>
+    <%= label_tag(:username) %>
+    <%= text_field_tag(:username) %>
+    <%= label_tag(:email) %>
+    <%= text_field_tag(:email) %>
+    <%= label_tag(:password) %>
+    <%= text_field_tag(:password) %>
+    <%= submit_tag("Create") %>
+
+<% end %> -->
+
+<%= form_with model: @user do |form| %> 
+    <%= form.label(:username, "User: ") %><br />
+    <%= form.text_field(:username, placeholder: "Username") %><br />
+
+    <%= form.label(:email, "Email:") %><br />
+    <%= form.text_field(:email, placeholder: "example@domain.com") %><br />
+
+    <%= form.label(:password, "Password:") %><br />
+    <%= form.password_field(:password, placeholder: "Password") %><br />
 
     <%= form.submit "Create" %>
 <% end %>
